@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <!-- Load Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Load Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Load script file.  'defer' loads after body is generated -->
+    
+</head>
+
+<body>
+
+    <h1>Iraq-Covid-19 by Areeg Fahad Rasheed Salman</h1>
+    <!-- Div where Vue runs -->
+    <div id="app">             
+            <ul v-for="country in countries_list['Iraq']">
+                   <li>
+                    Date:{{country.date}}, Confirmed: {{country.confirmed}},Deaths: {{country.deaths}},Recovered: {{country.recovered}}
+                    <!-- {{country.confirmed}} -->
+                   </li> 
+                </ul> 
+    </div>
+</body>
+</html>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        countries_list: [],
+    },
+
+    mounted() {
+        axios
+            .get('https://pomber.github.io/covid19/timeseries.json')
+            .then(response => (
+                this.countries_list = response.data
+));
+    }
+
+})
+</script>
