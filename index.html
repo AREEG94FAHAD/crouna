@@ -1,5 +1,4 @@
 
-
 <html lang="en">
 
     <head>
@@ -19,7 +18,29 @@
         <!-- <script src="exponential.js"></script> -->
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     
+        <script>
+            $(document).ready( function () {
         
+            $.fn.dataTable.moment( 'MMM D, YYYY' );
+            $.fn.dataTable.moment( 'D-MMM-YY' );
+            // $('#table_id').dataTable({searching: false, paging: false, info: false});
+            $('#table_id').DataTable({
+        
+            dom: 'B<"clear">lfrtip',
+            buttons: {
+                name: 'primary',
+                 buttons: [ 'copy', 'csv', 'excel', 'pdf' ],
+                 
+        
+                },
+                searching: false,
+                 paging: false, info: false
+                }
+            );
+            
+        }
+         );
+        </script>
         
     </head>
     
@@ -77,12 +98,7 @@
     
     </script>
     
-    <script>
     
-        $(document).ready(function() {
-            $('#example').DataTable();
-        } );
-        </script>
 
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
@@ -92,29 +108,7 @@
 
 <!-- the second way to do it to integrate our buttons for export-->
 
-<script>
-    $(document).ready( function () {
 
-    $.fn.dataTable.moment( 'MMM D, YYYY' );
-    $.fn.dataTable.moment( 'D-MMM-YY' );
-    // $('#table_id').dataTable({searching: false, paging: false, info: false});
-    $('#table_id').DataTable({
-
-    dom: 'B<"clear">lfrtip',
-    buttons: {
-        name: 'primary',
-         buttons: [ 'copy', 'csv', 'excel', 'pdf' ],
-         
-
-        },
-        searching: false,
-         paging: false, info: false
-        }
-    );
-    
-}
- );
-</script>
     
     
     <!-- <link rel="https://code.jquery.com/jquery-3.3.1.js">
